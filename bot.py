@@ -117,8 +117,6 @@ if __name__ == '__main__':
     async def setup_commands():
         await app.bot.set_my_commands([
             BotCommand("start", "Запустить бота"),
-            BotCommand("history", "Показать историю"),
-            BotCommand("set_ad", "Установить рекламу (админ)"),
         ])
     import asyncio
     asyncio.get_event_loop().run_until_complete(setup_commands())
