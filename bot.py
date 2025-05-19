@@ -1,12 +1,8 @@
 
 import asyncio
 import requests
-from telegram import (
-    Update,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    ChatAction,
-)
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.constants import ChatAction
 from telegram.ext import (
     ApplicationBuilder,
     CommandHandler,
@@ -15,6 +11,7 @@ from telegram.ext import (
     CallbackQueryHandler,
     filters,
 )
+
 
 # --- Конфиги ---
 TELEGRAM_TOKEN = '7253845822:AAGltWcYaaXVvr4Pb95pP6lXh8lYfZInoI4'
