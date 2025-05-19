@@ -10,7 +10,7 @@ from telegram.ext import (
 )
 
 # --- Настройки ---
-TELEGRAM_TOKEN = '8140231133:AAHua40lJeqAiGiTlUMTDDsIAukm4iueggE'
+TELEGRAM_TOKEN = '7253845822:AAGltWcYaaXVvr4Pb95pP6lXh8lYfZInoI4'
 GEMINI_API_KEY = 'AIzaSyA6xHo-SD3jRybAiQt7CHxWgIpWWZrllhw'
 GEMINI_API_URL = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}'
 ADMIN_ID = 1543197217  # Твой Telegram ID для уведомлений
