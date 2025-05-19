@@ -12,6 +12,9 @@ GEMINI_API_URL = f'https://generativelanguage.googleapis.com/v1beta/models/gemin
 REPLICATE_API_TOKEN = 'r8_HIB3ha4Vfn7v21xSimfapnYVt5QoAsP3REp0l'
 ADMIN_ID = 1543197217  # Замени на свой Telegram ID
 
+# Создаём клиент replicate один раз
+replicate_client = replicate.Client(api_token=REPLICATE_API_TOKEN)
+
 # ==== Команды ====
 
 # /start
@@ -52,8 +55,7 @@ async def generate_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
     prompt = ' '.join(context.args)
     await update.message.reply_text("🎨 Генерирую изображение... ⏳")
     try:
-        replicate.Client(api_token=REPLICATE_API_TOKEN)
-        model = replicate.models.get("stability-ai/stable-diffusion")
+        model = replicate_client.models.get("stability-ai/stable-diffusion")
         version = model.versions.get("db21e45b8b37ac0515c8edc535780047c9f00a7eb2f04619b1a1c2f72b75e39c")
         output = version.predict(prompt=prompt)
         if output and isinstance(output, list):
@@ -103,6 +105,3 @@ if __name__ == '__main__':
 
     print("✅ Бот запущен...")
     app.run_polling()
-
-
-
