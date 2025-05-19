@@ -5,7 +5,7 @@ from telegram.ext import (
 )
 
 # Настройки
-TELEGRAM_TOKEN = '6080459731:AAG7IF_92IBbiMsTIStN81gqfRc2Dy9mEJc'
+TELEGRAM_TOKEN = '8140231133:AAHua40lJeqAiGiTlUMTDDsIAukm4iueggE'
 GEMINI_API_KEY = 'AIzaSyA6xHo-SD3jRybAiQt7CHxWgIpWWZrllhw'
 GEMINI_API_URL = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}'
 ADMIN_ID = 1543197217  # ← замени на свой Telegram user ID
