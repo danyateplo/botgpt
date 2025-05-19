@@ -65,8 +65,6 @@ if __name__ == '__main__':
 
     app.add_handler(CommandHandler('start', start))
     app.add_handler(CommandHandler('set_ad', set_ad))
-    app.add_handler(CommandHandler('history', history))
-    app.add_handler(CommandHandler('img', generate_image))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     print("✅ Бот запущен...")
