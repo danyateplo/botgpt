@@ -104,19 +104,25 @@ async def set_commands(application):
     await application.bot.set_my_commands(commands)
 
 # --- Запуск ---
-async def main():
+if __name__ == '__main__':
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 
-    await set_commands(app)
-
+    # Регистрируем команды
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("set_ad", set_ad))
     app.add_handler(CommandHandler("history", history))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
-    print("Бот запущен...")
-    await app.run_polling()
-
-if __name__ == "__main__":
+    # Устанавливаем команды Telegram
+    async def setup_commands():
+        await app.bot.set_my_commands([
+            BotCommand("start", "Запустить бота"),
+            BotCommand("history", "Показать историю"),
+            BotCommand("set_ad", "Установить рекламу (админ)"),
+        ])
     import asyncio
-    asyncio.run(main())
+    asyncio.get_event_loop().run_until_complete(setup_commands())
+
+    print("Бот запущен...")
+    app.run_polling()
+
